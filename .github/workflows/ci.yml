@@ -10,13 +10,13 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        php: ['7.2', '7.3', '7.4']
+        php: ['7.3', '7.4', '8.0', '8.1']
     name: PHP ${{ matrix.php }}
     steps:
     - name: Checkout
       uses: actions/checkout@v1
     - name: Set up PHP
-      uses: shivammathur/setup-php@master
+      uses: shivammathur/setup-php@v2
       with:
         php-version: ${{ matrix.php }}
         extensions: mbstring
@@ -28,4 +28,8 @@ jobs:
     - name: Check Kahlan Version
       run: vendor/bin/kahlan --no-header --version
     - name: Make
+      if: ${{ startsWith(matrix.php, '7.') }}
       run: make ci
+    - name: Make
+      if: ${{ startsWith(matrix.php, '8.') }}
+      run: make test

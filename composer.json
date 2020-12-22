@@ -13,14 +13,14 @@
     ],
     "type": "phpstan-extension",
     "require": {
-        "php": ">=7.2",
+        "php": "^7.3 || ^8",
         "phpstan/phpstan": "^0.12"
     },
     "require-dev": {
         "eloquent/code-style": "^1",
-        "eloquent/phony": "^4",
-        "eloquent/phony-kahlan": "^3",
-        "eloquent/phony-phpunit": "^6",
+        "eloquent/phony": "^5",
+        "eloquent/phony-kahlan": "dev-phony-5",
+        "eloquent/phony-phpunit": "^7",
         "friendsofphp/php-cs-fixer": "^2",
         "kahlan/kahlan": "^4.1"
     },
